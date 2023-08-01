@@ -43,3 +43,13 @@ li {
 .todoItem_close:hover {
   font-weight:bold;
 }
+
+
+.completed_todo{
+  text-decoration:line-through;
+}
+
+.todoItem_completed-span.completed_todo {
+  background-color:pink;
+  color:red;
+}
