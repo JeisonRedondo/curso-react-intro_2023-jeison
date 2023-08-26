@@ -13,43 +13,8 @@ li {
   overflow:auto;
 }
 
-.todoItem_completed-span {
-  position:absolute;
-  left:0px;
-  bottom:0.5px;
-  
-  background-color:green;
-  padding:10px;
-  cursor:pointer;
-}
-
-.todoItem_completed-span:hover {
-  background-color:blue;
-  color:white;
-}
-
-.todoItem_close {
-  
-  position:absolute;
-  right:0;
-  bottom:0.5px;
-
-  background-color:#ae6868;
-  color:black;
-  padding:10px;
-  cursor:pointer;
-}
-
-.todoItem_close:hover {
-  font-weight:bold;
-}
-
-
 .completed_todo{
   text-decoration:line-through;
 }
 
-.todoItem_completed-span.completed_todo {
-  background-color:pink;
-  color:red;
-}
+

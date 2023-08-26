@@ -1,0 +1,22 @@
+.todoItem_complete {
+  position:absolute;
+  left:5px;
+  top:10px;
+  width:25px;
+  height:25px;
+
+  border-radius:12px;
+  background-color:green;
+  fill:#16035b;
+  cursor:pointer;
+}
+
+.todoItem_complete:hover {
+  background-color:blue;
+  color:white;
+}
+
+.todoItem_complete.completed_todo {
+  background-color:pink;
+  color:red;
+}
