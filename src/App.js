@@ -6,19 +6,34 @@ import { TodoSearch } from './TodoSearch/TodoSearch.js';
 import { TodoList } from './TodoList/TodoList.js';
 import { TodoItem } from './TodoItem/TodoItem.js';
 import { CreateTodoButton } from './CreateTodoButton/CreateTodoButton.js';
+//const defaultTodos = [
+//  {text:'Cortar cebolla', completed: true},
+//  {text:'Tomar curso de Intro a React.js ', completed: false},
+//  {text:'Llorar con la llorona', completed: false},
+//  {text:'Mandarme sobar el brazo', completed: false} ,
+//  {text:'Cantar lalalaa como el profe JuanDC', completed: false},
+//];
 
-const defaultTodos = [
-  {text:'Cortar cebolla', completed: true},
-  {text:'Tomar curso de Intro a React.js ', completed: false},
-  {text:'Llorar con la llorona', completed: false},
-  {text:'Mandarme sobar el brazo', completed: false} ,
-  {text:'Cantar lalalaa como el profe JuanDC', completed: false},
-];
 
-
+//localStorage.setItem('TODOS_VER1',JSON.stringify(defaultTodos));
+//localStorage.removeItem('TODOS_VER1');
 
 function App() {
-  const [todos, setTodos] = React.useState(defaultTodos);
+
+  let localStorageTodos = localStorage.getItem('TODOS_VER1');
+
+  let parsedTodos;
+
+  if(!localStorageTodos){
+    localStorage.setItem('TODOS_VER1', JSON.stringify([]));
+    parsedTodos = [];
+  }else{
+    parsedTodos = JSON.parse(localStorageTodos);
+  }
+
+  const [todos, setTodos] = React.useState(parsedTodos);
+  // Aqui podemos aplicar la recomendacion del compañero.
+
 
   const [ searchValue, setSearchValue ] = React.useState('');
   console.log('Los usuarios buscan todos de ' + searchValue);
@@ -35,12 +50,19 @@ function App() {
     }
   )
 
+  const saveTodos = (newTodos) => {
+    
+    localStorage.setItem('TODOS_VER1',JSON.stringify(newTodos));
+
+    setTodos(newTodos);
+  } 
+
   const verifyComplete = (text) => {
 
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text === text);
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
-    setTodos(newTodos);
+    saveTodos(newTodos);
   }
 
     const deleteComplete = (text) => {
@@ -48,7 +70,7 @@ function App() {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text === text);
     newTodos.splice(todoIndex,1);
-    setTodos(newTodos);
+    saveTodos(newTodos);
   }
 
   
