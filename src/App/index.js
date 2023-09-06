@@ -1,11 +1,11 @@
 import React from 'react';
-import './App.css';
 
-import { TodoCounter } from './TodoCounter/TodoCounter.js';
-import { TodoSearch } from './TodoSearch/TodoSearch.js';
-import { TodoList } from './TodoList/TodoList.js';
-import { TodoItem } from './TodoItem/TodoItem.js';
-import { CreateTodoButton } from './CreateTodoButton/CreateTodoButton.js';
+import { TodoCounter } from '../TodoCounter';
+import { TodoSearch } from '../TodoSearch';
+import { TodoList } from '../TodoList';
+import { TodoItem } from '../TodoItem';
+import { CreateTodoButton } from '../CreateTodoButton';
+import { useLocalStorage } from './useLocalStorage';
 //const defaultTodos = [
 //  {text:'Cortar cebolla', completed: true},
 //  {text:'Tomar curso de Intro a React.js ', completed: false},
@@ -18,20 +18,10 @@ import { CreateTodoButton } from './CreateTodoButton/CreateTodoButton.js';
 //localStorage.setItem('TODOS_VER1',JSON.stringify(defaultTodos));
 //localStorage.removeItem('TODOS_VER1');
 
+
 function App() {
 
-  let localStorageTodos = localStorage.getItem('TODOS_VER1');
-
-  let parsedTodos;
-
-  if(!localStorageTodos){
-    localStorage.setItem('TODOS_VER1', JSON.stringify([]));
-    parsedTodos = [];
-  }else{
-    parsedTodos = JSON.parse(localStorageTodos);
-  }
-
-  const [todos, setTodos] = React.useState(parsedTodos);
+  const [todos, saveTodos] = useLocalStorage('TODOS_VER1',[]);
   // Aqui podemos aplicar la recomendacion del compañero.
 
 
@@ -50,13 +40,7 @@ function App() {
     }
   )
 
-  const saveTodos = (newTodos) => {
-    
-    localStorage.setItem('TODOS_VER1',JSON.stringify(newTodos));
-
-    setTodos(newTodos);
-  } 
-
+  
   const verifyComplete = (text) => {
 
     const newTodos = [...todos];
