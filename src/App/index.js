@@ -1,11 +1,7 @@
 import React from 'react';
 
-import { TodoCounter } from '../TodoCounter';
-import { TodoSearch } from '../TodoSearch';
-import { TodoList } from '../TodoList';
-import { TodoItem } from '../TodoItem';
-import { CreateTodoButton } from '../CreateTodoButton';
-import { useLocalStorage } from './useLocalStorage';
+import { AppUI } from './AppUI';
+import { useLocalStorage } from './useLocalStorage.js';
 //const defaultTodos = [
 //  {text:'Cortar cebolla', completed: true},
 //  {text:'Tomar curso de Intro a React.js ', completed: false},
@@ -19,7 +15,7 @@ import { useLocalStorage } from './useLocalStorage';
 //localStorage.removeItem('TODOS_VER1');
 
 
-function App() {
+function App(){
 
   const [todos, saveTodos] = useLocalStorage('TODOS_VER1',[]);
   // Aqui podemos aplicar la recomendacion del compañero.
@@ -57,31 +53,17 @@ function App() {
     saveTodos(newTodos);
   }
 
-  
-  return (
-  <React.Fragment>   
-    <TodoCounter completed={completedTodos} total={totalTodos}/>
-    <TodoSearch 
-    searchValue={searchValue}
-    setSearchValue={setSearchValue}
-    />
-
-    <TodoList>  
-      {searchedTodos.map(todo => (
-        <TodoItem 
-        key={todo.text} 
-        text={todo.text}
-        completed={todo.completed}
-        onComplete={() => verifyComplete(todo.text)}
-        onDelete={() => deleteComplete(todo.text)}
-
+    return (
+      <AppUI
+        completedTodos={completedTodos}
+        totalTodos={totalTodos}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+        searchedTodos={searchedTodos}
+        verifyComplete={verifyComplete}
+        deleteComplete={deleteComplete}
       />
-      ))}
-    </TodoList>
-
-    <CreateTodoButton />
-  </React.Fragment>
-  );
-}
+    )
+  }
 
 export default App;
