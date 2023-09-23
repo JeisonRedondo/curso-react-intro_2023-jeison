@@ -17,7 +17,12 @@ import { useLocalStorage } from './useLocalStorage.js';
 
 function App(){
 
-  const [todos, saveTodos] = useLocalStorage('TODOS_VER1',[]);
+  const {
+    item: todos,
+    saveItem: saveTodos,
+    loading,
+    error
+  } = useLocalStorage('TODOS_VER1',[]);
   // Aqui podemos aplicar la recomendacion del compañero.
 
 
@@ -55,6 +60,8 @@ function App(){
 
     return (
       <AppUI
+        loading={loading}
+        error={error}
         completedTodos={completedTodos}
         totalTodos={totalTodos}
         searchValue={searchValue}
