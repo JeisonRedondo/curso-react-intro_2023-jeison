@@ -11,7 +11,7 @@
   background-color:white;
   border-radius:10px;
   overflow:hidden;
-  animation-duration:2s;
+  animation-duration:3s;
   animation-fill-mode:forward;
   animation-iteration-count:infinite;
   animation-name:preloadAnimation;
