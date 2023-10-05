@@ -8,6 +8,7 @@ import { CreateTodoButton } from '../CreateTodoButton';
 import { TodosLoading } from '../TodosLoading';
 import { TodosError } from '../TodosError';
 import { EmptyTodos } from '../EmptyTodos';
+import { Modal } from '../Modal';
 
 import { TodoContext } from '../TodoContext';
 
@@ -18,7 +19,9 @@ function AppUI(){
         error,
         searchedTodos,
         verifyComplete,
-        deleteComplete
+        deleteComplete,
+        openModal,
+        setOpenModal
   } = React.useContext(TodoContext);
 
   return (
@@ -44,6 +47,9 @@ function AppUI(){
        ))}
       </TodoList>
     <CreateTodoButton />
+
+      {openModal && (<Modal> La funcionalida de agregar TODO </Modal>) }
+
   </>
   );
 

@@ -14,6 +14,10 @@ function TodoProvider ({ children }){
 
 
   const [ searchValue, setSearchValue ] = React.useState('');
+
+  const [ openModal, setOpenModal ] = React.useState(true);
+
+
   console.log('Los usuarios buscan todos de ' + searchValue);
 
   const completedTodos = todos.filter(todo => !!todo.completed).length;
@@ -55,7 +59,9 @@ function TodoProvider ({ children }){
       setSearchValue,
       searchedTodos,
       verifyComplete,
-      deleteComplete
+      deleteComplete,
+      openModal,
+      setOpenModal,
     }}>
       { children }
     </TodoContext.Provider>
