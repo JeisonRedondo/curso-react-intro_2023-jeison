@@ -1,32 +1,16 @@
 .Modal{
+  z-index: 1;
   position: absolute;
-  top: calc(35%);
-  right: calc(40%);
-  
-  width: 200px;
-  margin: 0 auto;
-  
-  background-color: rgb(66, 29, 229);
-  border-radius: 20px;
+  width: 100vw;
+  height:100vh;
+
+  background-color:rgba(1,1,1,0.5);
+  left: calc(0%);
 
   display: flex;
-  flex-direction: column-reverse;
+  justify-content: 'center';
+  align-items:'center';
   }
 
 
-.modal-buttons{
-  margin: 10px;
 
-  display: flex;
-  justify-content: space-between;
-}
-
-.textTodo{
-  max-width: calc(100% - 20px);
-  border-radius: 20px;
-  margin: 10px;
-
-  border: 0;
-  outline: none;
-  padding: 5px;
-}
