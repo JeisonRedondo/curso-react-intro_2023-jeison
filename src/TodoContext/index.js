@@ -3,19 +3,18 @@ import { useLocalStorage } from './useLocalStorage.js';
 
 const TodoContext = React.createContext();
 
-function TodoProvider ({ children }){
-   const {
+function TodoProvider({ children }) {
+  const {
     item: todos,
     saveItem: saveTodos,
     loading,
     error
-  } = useLocalStorage('TODOS_VER1',[]);
+  } = useLocalStorage('TODOS_VER1', []);
   // Aqui podemos aplicar la recomendacion del compañero.
 
+  const [searchValue, setSearchValue] = React.useState('');
 
-  const [ searchValue, setSearchValue ] = React.useState('');
-
-  const [ openModal, setOpenModal ] = React.useState(true);
+  const [openModal, setOpenModal] = React.useState(true);
 
 
   console.log('Los usuarios buscan todos de ' + searchValue);
@@ -32,7 +31,7 @@ function TodoProvider ({ children }){
     }
   )
 
-  
+
   const verifyComplete = (text) => {
 
     const newTodos = [...todos];
@@ -41,11 +40,11 @@ function TodoProvider ({ children }){
     saveTodos(newTodos);
   }
 
-    const deleteComplete = (text) => {
+  const deleteComplete = (text) => {
 
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text === text);
-    newTodos.splice(todoIndex,1);
+    newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
   }
 
@@ -55,7 +54,7 @@ function TodoProvider ({ children }){
       error,
       completedTodos,
       totalTodos,
-      searchValue, 
+      searchValue,
       setSearchValue,
       searchedTodos,
       verifyComplete,
@@ -63,12 +62,12 @@ function TodoProvider ({ children }){
       openModal,
       setOpenModal,
     }}>
-      { children }
+      {children}
     </TodoContext.Provider>
   )
 };
 
-  export { TodoContext, TodoProvider };
+export { TodoContext, TodoProvider };
 
 //localStorage.removeItem('TODOS_VER1');
 
