@@ -14,10 +14,10 @@ function TodoProvider({ children }) {
 
   const [searchValue, setSearchValue] = React.useState('');
 
-  const [openModal, setOpenModal] = React.useState(true);
+  const [openModal, setOpenModal] = React.useState(false);
 
 
-  console.log('Los usuarios buscan todos de ' + searchValue);
+  //console.log('Los usuarios buscan todos de ' + searchValue);
 
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;

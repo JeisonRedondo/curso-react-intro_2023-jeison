@@ -6,6 +6,7 @@
 
 
 body {
+  position: relative;
   margin: 0;
   font-family:'PT Serif', serif,Arial,Helvetica;
 

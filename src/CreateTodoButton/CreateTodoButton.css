@@ -1,4 +1,4 @@
-button {
+.open-create-button {
   position:absolute;
   right:5px;
   bottom:10px;
@@ -22,6 +22,6 @@ button {
   transition: .3s ease;
 }
 
-button:hover {
+.open-create-button:hover {
   transform: rotate(224deg);
 }
