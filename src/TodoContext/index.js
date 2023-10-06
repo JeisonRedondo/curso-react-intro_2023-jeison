@@ -31,12 +31,20 @@ function TodoProvider({ children }) {
     }
   )
 
+  const addTodo = (text) => {
+    const newTodos = [...todos];
+    newTodos.push({
+      text,
+      completed: false,
+    });
+    saveTodos(newTodos);
+  }
 
   const verifyComplete = (text) => {
 
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text === text);
-    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
+    newTodos[todoIndex].completed = true;
     saveTodos(newTodos);
   }
 
@@ -61,6 +69,7 @@ function TodoProvider({ children }) {
       deleteComplete,
       openModal,
       setOpenModal,
+      addTodo,
     }}>
       {children}
     </TodoContext.Provider>

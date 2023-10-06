@@ -9,7 +9,7 @@ function CreateTodoButton() {
   return (
     <button className="open-create-button" onClick={
       () => {
-        setOpenModal(true)
+        setOpenModal(state => !state)
         console.log('Oprimiendo createtodobutton')
       }
     }>+</button>

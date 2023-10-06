@@ -1,4 +1,5 @@
 .open-create-button {
+  z-index: 3;
   position:absolute;
   right:5px;
   bottom:10px;
