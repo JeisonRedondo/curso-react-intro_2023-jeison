@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/JeisonRedondo/curso-react-intro_2023-jeison/static/css/main.48e86dad.css",
+    "main.js": "/JeisonRedondo/curso-react-intro_2023-jeison/static/js/main.f092f9f3.js",
+    "index.html": "/JeisonRedondo/curso-react-intro_2023-jeison/index.html",
+    "main.48e86dad.css.map": "/JeisonRedondo/curso-react-intro_2023-jeison/static/css/main.48e86dad.css.map",
+    "main.f092f9f3.js.map": "/JeisonRedondo/curso-react-intro_2023-jeison/static/js/main.f092f9f3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.48e86dad.css",
+    "static/js/main.f092f9f3.js"
+  ]
+}
